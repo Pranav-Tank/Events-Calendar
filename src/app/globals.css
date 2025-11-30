@@ -1,26 +1,192 @@
+/* ============================================
+   TAILWIND CSS IMPORT
+   ============================================ */
+/* Import Tailwind CSS v4 */
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* Reference Tailwind for utility classes */
+@reference "tailwindcss";
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+/* ============================================
+   GLOBAL STYLES
+   ============================================ */
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Set base styles for the entire app */
+@layer base {
+  /* HTML and body full height */
+  html,
+  body {
+    @apply h-full;
+  }
+  
+  /* Body styling */
+  body {
+    @apply bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50;
+    /* 
+      Beautiful gradient background:
+      - from-blue-50 = Start with light blue
+      - via-purple-50 = Through light purple
+      - to-pink-50 = End with light pink
+      - bg-gradient-to-br = Gradient from top-left to bottom-right
+    */
+    @apply text-gray-900;
+    @apply antialiased; /* Smooth font rendering */
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ============================================
+   CUSTOM COMPONENTS
+   ============================================ */
+@layer components {
+  /* Beautiful button styles */
+  .btn-primary {
+    @apply px-6 py-3 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-lg;
+    @apply font-semibold shadow-lg hover:shadow-xl;
+    @apply transition-all duration-200 hover:scale-105;
+    @apply focus:outline-none focus:ring-4 focus:ring-blue-300;
+  }
+  
+  .btn-secondary {
+    @apply px-6 py-3 bg-gray-200 text-gray-700 rounded-lg;
+    @apply font-semibold hover:bg-gray-300;
+    @apply transition-all duration-200;
+    @apply focus:outline-none focus:ring-4 focus:ring-gray-300;
+  }
+  
+  .btn-danger {
+    @apply px-6 py-3 bg-gradient-to-r from-red-500 to-red-600 text-white rounded-lg;
+    @apply font-semibold shadow-lg hover:shadow-xl;
+    @apply transition-all duration-200 hover:scale-105;
+    @apply focus:outline-none focus:ring-4 focus:ring-red-300;
+  }
+  
+  /* Card styles */
+  .card {
+    @apply bg-white rounded-xl shadow-lg p-6;
+    @apply transition-all duration-200 hover:shadow-xl;
+  }
+  
+  /* Input field styles */
+  .input-field {
+    @apply w-full px-4 py-3 border-2 border-gray-300 rounded-lg;
+    @apply focus:outline-none focus:ring-4 focus:border-blue-500 focus:ring-blue-200;
+    @apply transition-all duration-200;
+  }
+  
+  .input-error {
+    @apply border-red-300 focus:border-red-500 focus:ring-red-200;
+  }
 }
+
+/* ============================================
+   CUSTOM UTILITIES
+   ============================================ */
+@layer utilities {
+  /* Custom scrollbar */
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  /* Glass effect */
+  .glass {
+    @apply bg-white/20 backdrop-blur-lg;
+  }
+  
+  /* Gradient text */
+  .gradient-text {
+    @apply bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent;
+  }
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-in {
+  animation: slideIn 0.3s ease-out;
+}
+
+/* ============================================
+   LOADING SPINNER
+   ============================================ */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+/* ============================================
+   PRINT STYLES
+   ============================================ */
+@media print {
+  body {
+    @apply bg-white;
+  }
+  
+  .no-print {
+    display: none;
+  }
+}
+
+/* ============================================
+   CUSTOM FOCUS STYLES
+   ============================================ */
+/* Remove default focus outline and add custom one */
+*:focus {
+  @apply outline-none;
+}
+
+/* ============================================
+   TAILWIND CSS EXPLANATION
+   ============================================
+   
+   @tailwind base = Reset styles + base HTML elements
+   @tailwind components = Reusable component classes
+   @tailwind utilities = Utility classes (bg-red-500, etc.)
+   
+   @layer base = Add styles to base layer
+   @layer components = Add reusable component classes
+   @layer utilities = Add custom utility classes
+   
+   @apply = Use Tailwind classes in CSS
+   
+   Example:
+   .my-class {
+     @apply flex items-center gap-4;
+   }
+   
+   This is equivalent to:
+   <div class="flex items-center gap-4">
+   ============================================ */

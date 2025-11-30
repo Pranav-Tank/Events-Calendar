@@ -1,0 +1,61 @@
+// ============================================
+// PRISMA SCHEMA - Database Structure Definition
+// ============================================
+// This file tells Prisma how to connect to the database
+// and what tables/columns to create
+
+// Generator: Creates the Prisma Client code
+generator client {
+  provider = "prisma-client-js"  // Use JavaScript client
+}
+
+// Datasource: Defines which database to use
+datasource db {
+  provider = "sqlite"                    // Using SQLite (file-based database)
+  url      = env("DATABASE_URL")         // Connection string from .env file
+}
+
+// ============================================
+// EVENT MODEL - Defines the "events" table
+// ============================================
+model Event {
+  // Primary Key - Unique identifier for each event
+  id          Int      @id @default(autoincrement())
+  // @id = This is the primary key
+  // @default(autoincrement()) = Auto-generates 1, 2, 3, 4...
+  
+  // Basic Event Information
+  title       String
+  // String = Text field (required by default)
+  
+  description String?
+  // String? = Optional text field (? means can be null/empty)
+  
+  // Date & Time Fields
+  startDate   DateTime
+  // DateTime = Stores both date and time
+  
+  endDate     DateTime
+  // End date/time of the event
+  
+  // Recurrence Settings
+  isRecurring Boolean  @default(false)
+  // Boolean = true/false value
+  // @default(false) = Default value is false (one-time event)
+  
+  frequency   String?
+  // Stores: "daily", "weekly", or "monthly"
+  // Optional because one-time events don't need this
+  
+  daysOfWeek  String?
+  // For weekly events: stores "0,1,2" (0=Sunday, 1=Monday, etc.)
+  // Example: "1,3,5" means Monday, Wednesday, Friday
+  // Optional because only weekly events need this
+  
+  // Automatic Timestamps
+  createdAt   DateTime @default(now())
+  // @default(now()) = Automatically set to current time when created
+  
+  updatedAt   DateTime @updatedAt
+  // @updatedAt = Automatically updated whenever record changes
+}
