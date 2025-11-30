@@ -212,39 +212,6 @@ fetch('/api/events', {
 - Highlights today with blue ring
 - Displays up to 3 events per day
 
----
-
-## 📝 Usage Examples
-
-### Create a Gym Class (Weekly Recurring)
-```
-Title: Morning Workout
-Description: Gym class at FitZone
-Start Date: 2024-01-01 06:00 AM
-End Date: 2024-12-31 07:00 AM
-Recurring: Yes
-Frequency: Weekly
-Days: Monday, Wednesday, Friday
-```
-
-### Create Rent Payment (Monthly Recurring)
-```
-Title: Rent Payment
-Description: Monthly rent due
-Start Date: 2024-01-01
-End Date: 2024-12-31
-Recurring: Yes
-Frequency: Monthly
-```
-
-### Create Birthday Party (One-Time)
-```
-Title: John's Birthday Party
-Description: Celebration at home
-Start Date: 2024-12-25 
-End Date: 2024-12-25 
-Recurring: No
-```
 
 ---
 
@@ -326,15 +293,6 @@ npm start
 
 ---
 
-## 🎓 Learning Resources
-
-- [Next.js Documentation](https://nextjs.org/docs)
-- [Prisma Documentation](https://www.prisma.io/docs)
-- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
-- [React Documentation](https://react.dev)
-
----
-
 ## 📸 Screenshots
 
 ### Calendar View
@@ -359,23 +317,12 @@ Detailed view of individual events with all metadata.
 
 ---
 
-## 🤝 Contributing
-
-This is an interview project, but feedback and suggestions are welcome!
-
----
-
-## 📄 License
-
-This project is created for interview purposes.
-
----
 
 ## 👤 Author
 
-**Your Name**
-- GitHub: [Your GitHub Profile]
-- Email: [Your Email]
+**Pranav Tank**
+- GitHub: [https://github.com/Pranav-Tank]
+- Email: [pranavatank@gmail.com]
 
 ---
 
@@ -385,22 +332,6 @@ This project is created for interview purposes.
 - Prisma team for the excellent ORM
 - Tailwind CSS for the utility-first CSS framework
 
----
-
-## ⏰ Development Timeline
-
-This project was completed within the 48-hour deadline as part of an interview task.
-
----
-
-## 📊 Project Statistics
-
-- **Total Files:** 20+
-- **Lines of Code:** 3000+
-- **Components:** 3
-- **API Routes:** 2
-- **Pages:** 5
-- **Development Time:** 48 hours
 
 ---
 
