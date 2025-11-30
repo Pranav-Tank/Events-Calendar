@@ -6,10 +6,11 @@
 
 'use client'
 
-import { useState, useEffect, use } from 'react' // ← ADDED: use hook
+import { useState, useEffect, use } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { formatDate, getDayNames } from '@/lib/eventUtils'
+import { generateICS, downloadICS } from '@/lib/ics/icsGenerator'
 
 // ============================================
 // PAGE COMPONENT
@@ -56,6 +57,19 @@ export default function EventDetailPage({ params }) {
       fetchEvent()
     }
   }, [eventId])
+  
+  // ============================================
+  // EXPORT HANDLER
+  // ============================================
+  const handleExport = () => {
+    try {
+      const icsContent = generateICS(event)
+      downloadICS(icsContent, `${event.title.replace(/[^a-z0-9]/gi, '_')}.ics`)
+    } catch (error) {
+      console.error('Error exporting event:', error)
+      alert('Failed to export event')
+    }
+  }
   
   // ============================================
   // DELETE HANDLER
@@ -307,6 +321,14 @@ export default function EventDetailPage({ params }) {
           <span className="text-2xl">✏️</span>
           Edit Event
         </Link>
+        
+        <button
+          onClick={handleExport}
+          className="flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-lg font-bold text-lg shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105"
+        >
+          <span className="text-2xl">📥</span>
+          Export to Calendar
+        </button>
         
         <button
           onClick={handleDelete}

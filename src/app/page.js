@@ -44,7 +44,7 @@ export default function HomePage() {
             className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg font-bold text-lg shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105"
           >
             <span className="text-2xl">➕</span>
-            Create Your First Event
+            Create Event
           </Link>
         </div>
       </div>

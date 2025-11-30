@@ -201,13 +201,6 @@ export default function Calendar() {
 
   return (
     <div className="bg-white rounded-xl shadow-2xl p-8">
-      {/* 
-        Container styling:
-        - bg-white = White background
-        - rounded-xl = Extra large rounded corners
-        - shadow-2xl = Extra large shadow (dramatic effect)
-        - p-8 = Padding all sides 2rem (32px)
-      */}
       
       {/* ============================================ */}
       {/* CALENDAR HEADER */}
@@ -247,13 +240,7 @@ export default function Calendar() {
       {/* DAY NAMES HEADER */}
       {/* ============================================ */}
       <div className="grid grid-cols-7 gap-3 mb-3">
-        {/* 
-          Grid layout:
-          - grid = Display as grid
-          - grid-cols-7 = 7 columns (one for each day)
-          - gap-3 = Gap between cells (0.75rem / 12px)
-          - mb-3 = Margin bottom
-        */}
+    
         {dayNames.map(day => (
           <div
             key={day}
@@ -287,19 +274,7 @@ export default function Calendar() {
                 }
                 hover:shadow-md
               `}
-              /* 
-                Dynamic styling:
-                - min-h-[120px] = Minimum height 120px
-                - border-2 = 2px border
-                - rounded-lg = Large rounded corners
-                - p-3 = Padding 0.75rem
-                - transition-all = Smooth transitions
-                
-                Conditional classes:
-                - If current month: white bg, hover effect
-                - If not current month: gray bg (grayed out)
-                - If today: blue ring highlight
-              */
+           
             >
               {/* Day number */}
               <div

@@ -241,8 +241,8 @@ Frequency: Monthly
 ```
 Title: John's Birthday Party
 Description: Celebration at home
-Start Date: 2024-12-25 18:00
-End Date: 2024-12-25 22:00
+Start Date: 2024-12-25 
+End Date: 2024-12-25 
 Recurring: No
 ```
 
@@ -340,14 +340,22 @@ npm start
 ### Calendar View
 Beautiful monthly calendar with event display and navigation.
 
+![Calendar View](public/Calender%20Page.jpeg)
+
 ### Events List
 Comprehensive list of all events with filtering and search capabilities.
+
+![Events List](public/All%20Events%20Page.jpeg)
 
 ### Event Form
 Intuitive form for creating and editing events with recurring options.
 
+![Event Form](public/Create%20Event%20Page.jpeg)
+
 ### Event Details
 Detailed view of individual events with all metadata.
+
+![Event Details](public/View%20Event%20Page.jpeg)
 
 ---
 
